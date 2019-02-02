@@ -1,0 +1,46 @@
+.menu__item {
+  position: relative; }
+  .menu__item--inner:hover .menu__inner {
+    opacity: 1;
+    height: 107px; }
+
+.menu__inner {
+  width: auto;
+  position: absolute;
+  top: 100%;
+  left: -15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid #000;
+  background-color: #e5e5e5;
+  z-index: 10;
+  opacity: 0;
+  height: 0;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s; }
+  .menu__inner .menu__item {
+    width: 100%;
+    margin: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    border-bottom: 1px solid #000; }
+    .menu__inner .menu__item:last-child {
+      border-bottom: none; }
+    .menu__inner .menu__item .menu__link {
+      width: 100%;
+      padding: 0 15px;
+      text-align: center; }
+    .menu__inner .menu__item:hover {
+      background-color: #fff; }
