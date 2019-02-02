@@ -44,3 +44,83 @@
       text-align: center; }
     .menu__inner .menu__item:hover {
       background-color: #fff; }
+
+.popup--order {
+  text-align: center; }
+  .popup--order form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch; }
+  .popup--order .popup__title {
+    font-size: 18px;
+    font-weight: 700; }
+  .popup--order .button_regist {
+    padding: 3px 0;
+    color: #000; }
+  .popup--order .popup__input,
+  .popup--order .popup__textarea {
+    padding: 8px 10px;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    color: #000; }
+    .popup--order .popup__input::-webkit-input-placeholder,
+    .popup--order .popup__textarea::-webkit-input-placeholder {
+      color: #ddd; }
+    .popup--order .popup__input::-ms-input-placeholder,
+    .popup--order .popup__textarea::-ms-input-placeholder {
+      color: #ddd; }
+    .popup--order .popup__input::placeholder,
+    .popup--order .popup__textarea::placeholder {
+      color: #ddd; }
+  .popup--order .popup__input {
+    margin-top: 10px;
+    margin-bottom: 15px; }
+  .popup--order .popup__textarea {
+    margin-top: 0;
+    margin-bottom: 18px;
+    height: 120px; }
+
+.jq-selectbox__select {
+  margin-bottom: 15px;
+  height: 24px;
+  background: none;
+  background-image: none;
+  background-color: #e5e5e5;
+  border: none;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  text-shadow: none;
+  color: #000;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  line-height: 24px; }
+
+.jq-selectbox .placeholder {
+  color: #000; }
+
+.jq-selectbox__select {
+  padding: 0 10px; }
+
+.jq-selectbox__trigger {
+  display: none; }
+
+.jq-selectbox__dropdown {
+  position: relative;
+  margin-bottom: 15px;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  text-align: left;
+  max-height: 120px;
+  overflow-y: scroll; }
+
+.jq-selectbox li.selected {
+  background-color: #ddd; }

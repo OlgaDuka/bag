@@ -1,0 +1,41 @@
+.jq-selectbox__select {
+  margin-bottom: 15px;
+  height: 24px;
+  background: none;
+  background-image: none;
+  background-color: #e5e5e5;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  text-shadow: none;
+  color: #000;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.jq-selectbox .placeholder {
+  color: #000;
+}
+
+.jq-selectbox__select {
+  padding: 0 10px;
+}
+
+.jq-selectbox__trigger {
+  display: none;
+}
+
+.jq-selectbox__dropdown {
+  position: relative;
+  margin-bottom: 15px;
+  border-radius: 0;
+  box-shadow: none;
+  text-align: left;
+  max-height: 120px;
+  overflow-y: scroll;
+}
+
+.jq-selectbox li.selected {
+  background-color: #ddd;
+}

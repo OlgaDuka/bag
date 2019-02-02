@@ -1,0 +1,42 @@
+.popup--order {
+  text-align: center;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .popup__title {
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .button_regist {
+    padding: 3px 0;
+    color: #000;
+  }
+
+  .popup__input,
+  .popup__textarea {
+    padding: 8px 10px;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    color: #000;
+
+    &::placeholder {
+      color: #ddd;
+    }
+  }
+
+  .popup__input {
+    margin-top: 10px;
+    margin-bottom: 15px;
+  }
+
+  .popup__textarea {
+    margin-top: 0;
+    margin-bottom: 18px;
+    height: 120px;
+  }
+}

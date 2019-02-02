@@ -8,6 +8,8 @@
     <title>ReklamaClub</title>
     <link href="css/index.css" rel="stylesheet">
     <link href="css/auth.css" rel="stylesheet">
+    <link href="css/jquery.formstyler.min.css" rel="stylesheet">
+    <link href="css/jquery.formstyler.theme.min.css" rel="stylesheet">
     <link href="css/style.min.css" rel="stylesheet">
 </head>
 
@@ -41,7 +43,7 @@
                         <li class="menu__item menu__item--inner">
                             <a href="#" class="menu__link">Заказать рекламу</a>
                             <ul class="menu__inner">
-                               <li class="menu__item"><a href="#" class="menu__link">Заказать&nbsp;рекламу</a></li>
+                               <li class="menu__item"><a href="#" class="menu__link" id="item-order">Заказать&nbsp;рекламу</a></li>
                                <li class="menu__item"><a href="#" class="menu__link">Как&nbsp;пользоваться</a></li>
                                <li class="menu__item"><a href="#" class="menu__link">Рекламщикам</a></li>
                             </ul>
@@ -377,6 +379,45 @@
                 <button id="filter_cities" type="submit" class="button button_wide button_regist">ОK</button>
             </form>
         </div>
+        <div class="popup popup--order" id="popup-order">
+            <div class="popup__close"></div>
+            <div class="popup__title">Заказать рекламу</div>
+            <form id="form-order" action="#" class="form-auth" method="POST" enctype="multipart/form-data">
+                <select class="popup__select" data-placeholder="Выберите город" data-smart-positioning="false">
+                  <option></option>
+                  <option>Город 1</option>
+                  <option>Город 2</option>
+                  <option>Город 3</option>
+                  <option>Город 4</option>
+                  <option>Город 5</option>
+                  <option>Город 6</option>
+                  <option>Город 7</option>
+                  <option>Город 8</option>
+                  <option>Город 9</option>
+                  <option>Город 10</option>
+                </select>
+                <select class="popup__select" data-placeholder="ПРОДУКЦИЯ">
+                  <option></option>
+                  <option>Продукция 1</option>
+                  <option>Продукция 2</option>
+                  <option>Продукция 3</option>
+                  <option>Продукция 4</option>
+                  <option>Продукция 5</option>
+                </select>
+                <select class="popup__select" data-placeholder="ТЕХНОЛОГИИ">
+                  <option></option>
+                  <option>Технология 1</option>
+                  <option>Технология 2</option>
+                  <option>Технология 3</option>
+                  <option>Технология 4</option>
+                  <option>Технология 5</option>
+              </select>
+              <input class="popup__input" type="email" id="email" name="email" placeholder="Ваша эл. почта" required>
+              <textarea class="popup__textarea" id="desc" name="desc" placeholder="Опишите Ваш заказ (максимум 256 символов)" required></textarea>
+              
+              <button id="filter_cities" type="submit" class="button button_wide button_regist">ОK</button>
+            </form>
+        </div>
         <div class="popup popup_company" id="popup-company">
             <div class="popup__close"></div>
             <div class="popup-slider" id="popup-slider">
@@ -425,9 +466,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mobile-detect/1.4.3/mobile-detect.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.19/jquery.touchSwipe.min.js"></script>
+<script type="text/javascript" src="js/jquery.formstyler.min.js"></script>
 <script type="text/javascript" src="js/common.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/custom.js"></script>
 </body>
 
 </html>
