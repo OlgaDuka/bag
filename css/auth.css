@@ -1,0 +1,12 @@
+/*Верстка доля бэкенда*/
+.error{
+    color: red;
+}
+
+.error_category{
+    margin-top: -15px;
+}
+
+.accordeon-category__inner-item{
+    width: 100%;
+}

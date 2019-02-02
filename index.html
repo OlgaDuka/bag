@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ReklamaClub</title>
+    <link href="css/index.css" rel="stylesheet">
+    <link href="css/auth.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="wrapper">
+    <div class="header">
+        <div class="container clearfix">
+            <div class="header__geo">
+                <a href="#" class="geolocation" id="selectCountry">
+                    <svg class="geolocation__img" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="20px"
+                         height="20px" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+                         viewBox="0 0 2844 5870" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <g id="Слой_x0020_1">
+                                <metadata id="CorelCorpID_0Corel-Layer" />
+                                <path class="fil0" d="M1422 934c401,0 726,368 726,822 0,454 -325,822 -726,822 -401,0 -726,-368 -726,-822 0,-454 325,-822 726,-822zm0 -934c785,0 1422,721 1422,1610 0,259 -54,503 -150,720l0 0 -1322 3540 -1211 -3517 0 0c-102,-222 -160,-475 -160,-743 0,-889 637,-1610 1422,-1610z" />
+                            </g>
+                        </svg>
+
+                    <span class="geolocation__link">{{$str_cities}}</span>
+                </a>
+            </div>
+            <div class="header__menu">
+                <div class="menu">
+                    <ul class="menu__list clearfix">
+                        <li class="menu__item">
+                            <a href="#" class="menu__link menu__link_active">Лента</a>
+                        </li>
+                        <li class="menu__item">
+                            <a href="/front/geo" class="menu__link">Карта</a>
+                        </li>
+                        <li class="menu__item">
+                            <a href="#" class="menu__link">Заказать рекламу</a>
+                            <ul class="menu__inner">
+                               <li><a href="#" class="menu__link">Заказать рекламу</a></li>
+                               <li><a href="#" class="menu__link">Как пользоваться</a></li>
+                               <li><a href="#" class="menu__link">Рекламщикам</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                @if(Auth::check())
+                    <a href="/logout" class="auth" id="auth_logout">Выход</a>
+                @else
+                    <a href="/login" class="auth" id="auth">Вход</a>
+                @endif
+            </div>
+        </div>
+    </div>
+    <div class="main">
+        <div class="container container_small">
+            <div class="firms" data-count="9" id="firms">
+                <div class="firms__trigger">
+                    <div class="firms__title"><h4>РЕКЛАМНЫЕ АГЕНТСТВА</h4></div>
+                    <div class="firms__controls">
+                        <a href="#" class="firms__control firms__control_prev" data-vector="prev"></a>
+                        <a href="#" class="firms__control firms__control_next" data-vector="next"></a>
+                    </div>
+                </div>
+                <div class="firms__slider">
+                    <div class="firms__wrap">
+                        <ul class="firms__list" id="slider-firms__list">
+                            <li class="firms__item">
+                                <a href="#" class="firms__link">
+                                    <span class="firms__text">компания 1</span>
+                                </a>
+                            </li>
+                            <li class="firms__item">
+                                <a href="#" class="firms__link">
+                                    <span class="firms__text">компания 2</span>
+                                </a>
+                            </li>
+                            <li class="firms__item">
+                                <a href="#" class="firms__link">
+                                    <span class="firms__text">компания 3</span>
+                                </a>
+                            </li>
+                            <li class="firms__item">
+                                <a href="#" class="firms__link">
+                                    <span class="firms__text">компания 4</span>
+                                </a>
+                            </li>
+                            <li class="firms__item">
+                                <a href="#" class="firms__link">
+                                    <span class="firms__text">компания 5</span>
+                                </a>
+                            </li>
+                            <li class="firms__item">
+                                <a href="#" class="firms__link">
+                                    <span class="firms__text">компания 6</span>
+                                </a>
+                            </li>
+                            <li class="firms__item">
+                                <a href="#" class="firms__link">
+                                    <span class="firms__text">компания 7</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <form action="/front/filter" class="accordeon-form" method="POST" enctype="multipart/form-data">
+                <div class="accordeon-category" id="accordeon">
+                    <ul class="accordeon-category__list">
+                        <li class="accordeon-category__item">
+                            <a href="#" class="accordeon-category__trigger">Заказчики</a>
+                            <div class="accordeon-category__wrap">
+                                <input type="text" class="filter" id="client_id" name="client_id" value="" hidden>
+                                <ul class="accordeon-category__inner-list">
+                                    <li class="accordeon-category__inner-item">
+                                        <label class="accordeon-category__form-label">
+                                            <input class="client_id" type="button" name="client" value="">
+                                            <a class="accordeon-category__link">Заказчики 1</a>
+                                        </label>
+                                    </li>
+                                    <li class="accordeon-category__inner-item">
+                                        <label class="accordeon-category__form-label">
+                                            <input class="client_id" type="button" name="client" value="">
+                                            <a class="accordeon-category__link">Заказчики 2</a>
+                                        </label>
+                                    </li>
+                                    <li class="accordeon-category__inner-item">
+                                        <label class="accordeon-category__form-label">
+                                            <input class="client_id" type="button" name="client" value="">
+                                            <a class="accordeon-category__link">Заказчики 3</a>
+                                        </label>
+                                    </li>
+                                    <li class="accordeon-category__inner-item">
+                                        <label class="accordeon-category__form-label">
+                                            <input class="client_id" type="button" name="client" value="">
+                                            <a class="accordeon-category__link">Заказчики 4</a>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="accordeon-category__item">
+                            <a href="#" class="accordeon-category__trigger">Продукция</a>
+                            <div class="accordeon-category__wrap">
+                                <input type="text" class="filter" id="product_id" name="product_id" value="" hidden>
+                                <ul class="accordeon-category__inner-list">
+                                        <li class="accordeon-category__inner-item">
+                                            <label class="accordeon-category__form-label">
+                                                <input class="product_id" type="button" name="product" value="">
+                                                <a class="accordeon-category__link">Продукция 1</a>
+                                            </label>
+                                        </li>
+                                    <li class="accordeon-category__inner-item">
+                                        <label class="accordeon-category__form-label">
+                                            <input class="product_id" type="button" name="product" value="">
+                                            <a class="accordeon-category__link">Продукция 2</a>
+                                        </label>
+                                    </li>
+                                    <li class="accordeon-category__inner-item">
+                                        <label class="accordeon-category__form-label">
+                                            <input class="product_id" type="button" name="product" value="">
+                                            <a class="accordeon-category__link">Продукция 3</a>
+                                        </label>
+                                    </li>
+                                    <li class="accordeon-category__inner-item">
+                                        <label class="accordeon-category__form-label">
+                                            <input class="product_id" type="button" name="product" value="">
+                                            <a class="accordeon-category__link">Продукция 4</a>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="accordeon-category__item">
+                            <a href="#" class="accordeon-category__trigger">Технологии</a>
+                            <div class="accordeon-category__wrap">
+                                <input type="text" class="filter" id="technology_id" name="technology_id" value="" hidden>
+                                <ul class="accordeon-category__inner-list">
+                                        <li class="accordeon-category__inner-item">
+                                            <label class="accordeon-category__form-label">
+                                                <input type="button" class="technology_id" name="technology" value="">
+                                                <a class="accordeon-category__link">Технологии 1</a>
+                                            </label>
+                                        </li>
+                                    <li class="accordeon-category__inner-item">
+                                        <label class="accordeon-category__form-label">
+                                            <input type="button" class="technology_id" name="technology" value="">
+                                            <a class="accordeon-category__link">Технологии 2</a>
+                                        </label>
+                                    </li>
+                                    <li class="accordeon-category__inner-item">
+                                        <label class="accordeon-category__form-label">
+                                            <input type="button" class="technology_id" name="technology" value="">
+                                            <a class="accordeon-category__link">Технологии 3</a>
+                                        </label>
+                                    </li>
+                                    <li class="accordeon-category__inner-item">
+                                        <label class="accordeon-category__form-label">
+                                            <input type="button" class="technology_id" name="technology" value="">
+                                            <a class="accordeon-category__link">Технологии 4</a>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="accordeon-category__item">
+                            <a href="#" class="accordeon-category__trigger">Материалы</a>
+                            <div class="accordeon-category__wrap">
+                                <input type="text" class="filter" id="material_id" name="material_id" value="" hidden>
+                                <ul class="accordeon-category__inner-list">
+                                        <li class="accordeon-category__inner-item">
+                                            <label class="accordeon-category__form-label">
+                                                <input type="button" class="material_id" name="material" value="">
+                                                <a class="accordeon-category__link">Материалы 1</a>
+                                            </label>
+                                        </li>
+                                    <li class="accordeon-category__inner-item">
+                                        <label class="accordeon-category__form-label">
+                                            <input type="button" class="material_id" name="material" value="">
+                                            <a class="accordeon-category__link">Материалы 2</a>
+                                        </label>
+                                    </li>
+                                    <li class="accordeon-category__inner-item">
+                                        <label class="accordeon-category__form-label">
+                                            <input type="button" class="material_id" name="material" value="">
+                                            <a class="accordeon-category__link">Материалы 3</a>
+                                        </label>
+                                    </li>
+                                    <li class="accordeon-category__inner-item">
+                                        <label class="accordeon-category__form-label">
+                                            <input type="button" class="material_id" name="material" value="">
+                                            <a class="accordeon-category__link">Материалы 4</a>
+                                        </label>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <button class="button button_send button_color_orange" id="slide-button" type="submit">Показать</button>
+            </form>
+            <div class="adv">
+                <ul class="adv__list clearfix" id="adv">
+                    <li class="adv__item">
+                        <a href="#" class="adv__link">
+                            <img src="img/2.png" alt="adv1" class="adv__img">
+                            <div class="atr_path" id="" hidden></div>
+                        </a>
+                    </li>
+                    <li class="adv__item">
+                        <a class="adv__link adv__link_fake"></a>
+                    </li>
+                    <li class="adv__item">
+                        <a class="adv__link adv__link_fake"></a>
+                    </li>
+                    <li class="adv__item">
+                        <a class="adv__link adv__link_fake"></a>
+                    </li>
+                    <li class="adv__item">
+                        <a class="adv__link adv__link_fake"></a>
+                    </li>
+                    <li class="adv__item">
+                        <a class="adv__link adv__link_fake"></a>
+                    </li>
+                    <li class="adv__item">
+                        <a class="adv__link adv__link_fake"></a>
+                    </li>
+                    <li class="adv__item">
+                        <a class="adv__link adv__link_fake"></a>
+                    </li>
+                    <li class="adv__item">
+                        <a class="adv__link adv__link_fake"></a>
+                    </li>
+                    <li class="adv__item">
+                        <a class="adv__link adv__link_fake"></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="popup-overlay" id="overlay">
+        <div class="popup" id="popup-auth">
+            <div class="popup__close"></div>
+            <div class="popup__title">Авторизация</div>
+            <form id="login-form" action="" class="form-auth" method="POST" aria-label="{{ __('Login') }}">
+                <label class="form-auth__label">
+                    <span class="form-auth__label-text">Email</span>
+                    <input id="login_email" type="email" name="email" placeholder="example@mail.ru" class="form-auth__input">
+                    <div class="error error_login"></div>
+                </label>
+                <label class="form-auth__label">
+                    <span class="form-auth__label-text">Пароль</span>
+                    <input id="login_password" type="password" name="password" placeholder="Ваш пароль" class="form-auth__input">
+                </label>
+                <a href="#" class="form-auth__question form-auth__question_mb_20" id="repassword">Забыли пароль?</a>
+                <button type="submit" class="button button_auth">Войти</button>
+                <span class="form-auth__question form-auth__question_color_gray">Нет аккаунта?</span>
+                <a href="#" class="form-auth__question" id="register">Зарегистрируйтесь</a>
+            </form>
+        </div>
+        <div class="popup" id="popup-register">
+            <div class="popup__close"></div>
+            <div class="popup__title">Регистрация</div>
+            <form action="" class="form-auth" method="POST" aria-label="{{ __('Register') }}">
+                <label class="form-auth__label">
+                    <span class="form-auth__label-text">Название компании</span>
+                    <input type="text" name="company" id="company" placeholder='"ООО ЗВЕЗДА"' class="form-auth__input">
+                    <div class="error error_company"></div>
+                </label>
+                <span class="form-auth__label-text">Город</span>
+                <select name="category" id="country" class="form-auth__select">
+                    <option value="">Не выбрано</option>
+                    <option value="">Город 1</option>
+                    <option value="">Город 2</option>
+                    <option value="">Город 3</option>
+                    <option value="">Город 4</option>
+                    <option value="">Город 5</option>
+                </select>
+                <div class="error error_category"></div>
+                <label class="form-auth__label">
+                    <span class="form-auth__label-text">Email</span>
+                    <input id="register_email" type="email" name="email" placeholder="example@mail.ru" class="form-auth__input">
+                    <div class="error error_email"></div>
+                </label>
+                <label class="form-auth__label">
+                    <span class="form-auth__label-text">Пароль</span>
+                    <input id="register_password" type="password" name="password" placeholder="Ваш пароль" class="form-auth__input">
+                    <div class="error error_password"></div>
+                </label>
+                <label class="form-auth__label">
+                    <span class="form-auth__label-text">Email для восстановления пароля</span>
+                    <input id="register_upemail" type="email" name="upemail" placeholder="example@mail.ru" class="form-auth__input">
+                    <div class="error error_upemail"></div>
+                </label>
+                <button id="button_regist" type="submit" class="button button_auth button_regist">Зарегистрироваться</button>
+                <span class="form-auth__question form-auth__question_color_gray">Есть аккаунт?</span>
+                <a href="#" class="form-auth__question" id="authorization">Авторизуйтесь</a>
+            </form>
+        </div>
+        <div class="popup" id="popup-repassword">
+            <div class="popup__close"></div>
+            <div class="popup__title">Восстановление пароля</div>
+            <form action="#" class="form-auth" method="POST" enctype="multipart/form-data">
+                @csrf
+                <label class="form-auth__label">
+                    <span class="form-auth__label-text">Email</span>
+                    <input id="email_reset_password" type="email" name="email" placeholder="example@mail.ru" class="form-auth__input">
+                    <div class="error error_email_reset_password"></div>
+                </label>
+                <button id="btn_reset_password" type="submit" class="button button_wide">Отправить</button>
+            </form>
+        </div>
+        <div class="popup" id="popup-сountry">
+            <div class="popup__close"></div>
+            <div class="popup__title">Выбрать город</div>
+            <form id="form_cities" action="#" class="form-auth" method="POST" enctype="multipart/form-data">
+                <div class="form-countries" id="list_cities">
+                    <label class="form-auth__label">
+                        <input id="city_all" type="checkbox" name="all">
+                        <span class="form-auth__label-content">Выбрать все</span>
+                    </label>
+                        <label class="form-auth__label">
+                            <input class="checkbox_city" type="checkbox" name="city[]" value="{{$value->id}}" {{$value->status == '1' ? 'checked' : ''}}>
+                            <span class="form-auth__label-content">Город 1</span>
+                            <span class="form-auth__label-content">Город 2</span>
+                            <span class="form-auth__label-content">Город 3</span>
+                            <span class="form-auth__label-content">Город 4</span>
+                            <span class="form-auth__label-content">Город 5</span>
+                        </label>
+                </div>
+                <button id="filter_cities" type="submit" class="button button_wide button_regist">ОK</button>
+            </form>
+        </div>
+        <div class="popup popup_company" id="popup-company">
+            <div class="popup__close"></div>
+            <div class="popup-slider" id="popup-slider">
+                <div class="popup-slider__container">
+                    <ul class="popup-slider__list" id="slider-list">
+                        <li class="popup-slider__item" id="{{$value->reclamas_id}}">
+                            <div class="popup__info">
+                                <div class="popup__date">
+                                    <span class="popup__time">23:00</span> 02.03.2018
+                                </div>
+                                <div class="popup__description">
+                                    <a href="#" class="popup__link">aaaa</a>
+                                    <p class="popup__text">gfgfgfgdg</p>
+                                    <div class="tags">
+                                        <ul class="tags__list">
+                                            <li class="tags__item"></li>
+                                            <li class="tags__item"></li>
+                                            <li class="tags__item"></li>
+                                            <li class="tags__item"></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="popup-slider__link">
+                                <img src="" alt="" class="popup-slider__img">
+                            </div>
+                            <a href="#" class="button button_like">
+                                Нравится
+                                <span>{{$value->reclamas_like_photo}}</span>
+                            </a>
+                            <div class="button button_discus">
+                                Просмотров
+                                <span>{{$value->reclamas_discus_photo}}</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="popup-slider__controls">
+                    <a href="#" class="popup-slider__control popup-slider__control_prev" id="prev"></a>
+                    <a href="#" class="popup-slider__control popup-slider__control_next" id="next"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mobile-detect/1.4.3/mobile-detect.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.19/jquery.touchSwipe.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+</body>
+
+</html>
