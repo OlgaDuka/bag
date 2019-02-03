@@ -131,6 +131,13 @@
 .jq-selectbox.focused .jq-selectbox__select {
   border: none; }
 
+.jq-selectbox__trigger {
+  width: 16px;
+  border-left: none; }
+  .jq-selectbox__trigger-arrow {
+    top: 8px;
+    right: 5px; }
+
 .jq-selectbox__dropdown {
   position: relative;
   margin-bottom: 15px;
