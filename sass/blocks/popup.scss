@@ -12,9 +12,27 @@
     font-weight: 700;
   }
 
+  .popup__wrap {
+    margin-bottom: 15px;
+  }
+
+  .popup__select {
+    display: none;
+  }
+
   .button_regist {
+    margin-bottom: 5px;
     padding: 3px 0;
     color: #000;
+
+    &--disabled {
+      color: #ddd;
+
+      &:hover {
+        background-color: #ccc;
+        color: #ddd;
+      }
+    }
   }
 
   .popup__input,

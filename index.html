@@ -380,43 +380,48 @@
             </form>
         </div>
         <div class="popup popup--order" id="popup-order">
-            <div class="popup__close"></div>
-            <div class="popup__title">Заказать рекламу</div>
-            <form id="form-order" action="#" class="form-auth" method="POST" enctype="multipart/form-data">
-                <select class="popup__select" data-placeholder="Выберите город" data-smart-positioning="false">
-                  <option></option>
-                  <option>Город 1</option>
-                  <option>Город 2</option>
-                  <option>Город 3</option>
-                  <option>Город 4</option>
-                  <option>Город 5</option>
-                  <option>Город 6</option>
-                  <option>Город 7</option>
-                  <option>Город 8</option>
-                  <option>Город 9</option>
-                  <option>Город 10</option>
-                </select>
-                <select class="popup__select" data-placeholder="ПРОДУКЦИЯ">
-                  <option></option>
-                  <option>Продукция 1</option>
-                  <option>Продукция 2</option>
-                  <option>Продукция 3</option>
-                  <option>Продукция 4</option>
-                  <option>Продукция 5</option>
-                </select>
-                <select class="popup__select" data-placeholder="ТЕХНОЛОГИИ">
-                  <option></option>
-                  <option>Технология 1</option>
-                  <option>Технология 2</option>
-                  <option>Технология 3</option>
-                  <option>Технология 4</option>
-                  <option>Технология 5</option>
+          <div class="popup__close"></div>
+          <div class="popup__title">Заказать рекламу</div>
+          <form id="form-order" action="#" class="form-auth" method="POST" enctype="multipart/form-data">
+            <div class="popup__wrap">
+              <button id="btn-city" class="button button_wide button_regist" type="button" name="button">Выберите город</button>
+              <select class="popup__select" id="select-city" required>
+                <option>Город 1</option>
+                <option>Город 2</option>
+                <option>Город 3</option>
+                <option>Город 4</option>
+                <option>Город 5</option>
+                <option>Город 6</option>
+                <option>Город 7</option>
+                <option>Город 8</option>
+                <option>Город 9</option>
+                <option>Город 10</option>
               </select>
-              <input class="popup__input" type="email" id="email" name="email" placeholder="Ваша эл. почта" required>
-              <textarea class="popup__textarea" id="desc" name="desc" placeholder="Опишите Ваш заказ (максимум 256 символов)" required></textarea>
-              
-              <button id="filter_cities" type="submit" class="button button_wide button_regist">ОK</button>
-            </form>
+            </div>
+            <div class="popup__wrap">
+              <button id="btn-product" class="button button_wide button_regist" type="button" name="button">ПРОДУКЦИЯ</button>
+              <select class="popup__select" id="select-product">
+                <option>Продукция 1</option>
+                <option>Продукция 2</option>
+                <option>Продукция 3</option>
+                <option>Продукция 4</option>
+                <option>Продукция 5</option>
+              </select>
+            </div>
+            <div class="popup__wrap">
+              <button id="btn-technology" class="button button_wide button_regist" type="button" name="button">ТЕХНОЛОГИИ</button>
+              <select class="popup__select" id="select-technology">
+                <option>Технология 1</option>
+                <option>Технология 2</option>
+                <option>Технология 3</option>
+                <option>Технология 4</option>
+                <option>Технология 5</option>
+              </select>
+            </div>
+            <input class="popup__input" type="email" id="email" name="email" placeholder="Ваша эл. почта" required>
+            <textarea class="popup__textarea" id="desc" name="desc" placeholder="Опишите Ваш заказ (максимум 256 символов)" required></textarea>
+            <button id="sub-order" type="submit" class="button button_wide button_regist button_regist--disabled" disabled="true">ОK</button>
+          </form>
         </div>
         <div class="popup popup_company" id="popup-company">
             <div class="popup__close"></div>

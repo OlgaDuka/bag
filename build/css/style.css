@@ -61,9 +61,19 @@
   .popup--order .popup__title {
     font-size: 18px;
     font-weight: 700; }
+  .popup--order .popup__wrap {
+    margin-bottom: 15px; }
+  .popup--order .popup__select {
+    display: none; }
   .popup--order .button_regist {
+    margin-bottom: 5px;
     padding: 3px 0;
     color: #000; }
+    .popup--order .button_regist--disabled {
+      color: #ddd; }
+      .popup--order .button_regist--disabled:hover {
+        background-color: #ccc;
+        color: #ddd; }
   .popup--order .popup__input,
   .popup--order .popup__textarea {
     padding: 8px 10px;
@@ -88,7 +98,7 @@
     height: 120px; }
 
 .jq-selectbox__select {
-  margin-bottom: 15px;
+  padding: 0;
   height: 24px;
   background: none;
   background-image: none;
@@ -106,8 +116,20 @@
 .jq-selectbox .placeholder {
   color: #000; }
 
-.jq-selectbox__select {
-  padding: 0 10px; }
+.jq-selectbox li {
+  padding: 0;
+  color: #000; }
+  .jq-selectbox li:hover {
+    background-color: #bbb;
+    color: #000; }
+  .jq-selectbox li.selected {
+    color: #fff; }
+    .jq-selectbox li.selected:hover {
+      background-color: #ddd;
+      color: #fff; }
+
+.jq-selectbox.focused .jq-selectbox__select {
+  border: none; }
 
 .jq-selectbox__trigger {
   display: none; }
@@ -124,3 +146,10 @@
 
 .jq-selectbox li.selected {
   background-color: #ddd; }
+
+.jq-selectbox__select-text {
+  padding-left: 0;
+  text-align: left;
+  background-color: #fff;
+  outline: none;
+  border: none; }

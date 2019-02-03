@@ -6,7 +6,7 @@
 *.psd
 *.sublime*
 css/*.css
-node_modules1/
+node_modules/
 .publish/
 build/
 design/
