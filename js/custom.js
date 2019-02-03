@@ -6,60 +6,56 @@ $j(function () {
 
   $j('select').styler();
 
-var btnProduct = $j('#btn-product');
-var btnTechnology = $j('#btn-technology');
-var btnSubmit = $j('#sub-order');
-var selectProduct = $j('#select-product-styler');
-var selectTechnology = $j('#select-technology-styler');
-var flagCity = false;
-var flagProduct = false;
-var flagTechnology = false;
+  var btnProduct = $j('#btn-product');
+  var btnTechnology = $j('#btn-technology');
+  var btnSubmit = $j('#sub-order');
+  var selectProduct = $j('#select-product-styler');
+  var selectTechnology = $j('#select-technology-styler');
+  var flagCity = false;
+  var flagProduct = false;
+  var flagTechnology = false;
 
-var submitCheck = function (flagCommon) {
-  if (flagCity && flagCommon) {
-    btnSubmit.prop('disabled', false);
-    btnSubmit.removeClass('button_regist--disabled');
-  } else {
-    btnSubmit.prop('disabled', true);
-    btnSubmit.addClass('button_regist--disabled');
-  }
-};
+  var submitCheck = function () {
+    if (flagCity && (flagProduct || flagTechnology)) {
+      btnSubmit.prop('disabled', false);
+      btnSubmit.removeClass('button_regist--disabled');
+    } else {
+      btnSubmit.prop('disabled', true);
+      btnSubmit.addClass('button_regist--disabled');
+    }
+  };
 
-var onClickBtn = function (eventObject) {
-  if (!eventObject.data.flag) {
-    eventObject.data.select.fadeIn();
-    eventObject.data.btnDis.prop('disabled', true);
-    eventObject.data.btnDis.addClass('button_regist--disabled');
-    eventObject.data.flag = true;
-  } else {
-    eventObject.data.select.fadeOut();
-    eventObject.data.btnDis.prop('disabled', false);
-    eventObject.data.btnDis.removeClass('button_regist--disabled');
-    eventObject.data.flag = false;
-  }
-  submitCheck(eventObject.data.flag);
-  return eventObject.data.flag;
-};
+  var onClickBtnProduct = function () {
+    if (!flagProduct) {
+      selectProduct.fadeIn();
+      btnTechnology.prop('disabled', true);
+      btnTechnology.addClass('button_regist--disabled');
+      flagProduct = true;
+    } else {
+      selectProduct.fadeOut();
+      btnTechnology.prop('disabled', false);
+      btnTechnology.removeClass('button_regist--disabled');
+      flagProduct = false;
+    }
+    submitCheck();
+  };
 
-var closePopup = function () {
-  flagCity = false;
-  flagProduct = false;
-  flagTechnology = false;
-  $j('#select-city-styler').fadeOut();
-  $j('#select-product-styler').fadeOut();
-  $j('#select-technology-styler').fadeOut();
-  $j('#overlay').removeClass('popup-overlay_active');
-  $j('#popup-order').removeClass('popup_active');
-  $j('#form-order')[0].reset();
-};
+  var onClickBtnTechnology = function (eventObject) {
+    if (!flagTechnology) {
+      selectTechnology.fadeIn();
+      btnProduct.prop('disabled', true);
+      btnProduct.addClass('button_regist--disabled');
+      flagTechnology = true;
+    } else {
+      selectTechnology.fadeOut();
+      btnProduct.prop('disabled', false);
+      btnProduct.removeClass('button_regist--disabled');
+      flagTechnology = false;
+    }
+    submitCheck();
+  };
 
-  $j('#item-order').click( function (event) {
-    event.preventDefault();
-    $j('#overlay').addClass('popup-overlay_active');
-    $j('#popup-order').addClass('popup_active');
-  });
-
-  $j('#btn-city').click( function () {
+  var onClickBtnCity = function () {
     if (!flagCity) {
       $j('#select-city-styler').fadeIn();
       flagCity = true;
@@ -67,26 +63,31 @@ var closePopup = function () {
       $j('#select-city-styler').fadeOut();
       flagCity = false;
     }
-    if (flagProduct || flagTechnology) {
-      submitCheck(true);
-    } else {
-      submitCheck(false);
-    }
+    submitCheck();
+  };
+
+  var closePopup = function () {
+    flagCity = false;
+    flagProduct = false;
+    flagTechnology = false;
+    $j('#select-city-styler').fadeOut();
+    $j('#select-product-styler').fadeOut();
+    $j('#select-technology-styler').fadeOut();
+    $j('#overlay').removeClass('popup-overlay_active');
+    $j('#popup-order').removeClass('popup_active');
+    $j('#form-order')[0].reset();
+  };
+
+  $j('#item-order').click( function (event) {
+    event.preventDefault();
+    $j('#overlay').addClass('popup-overlay_active');
+    $j('#popup-order').addClass('popup_active');
   });
 
-  $j('#btn-product').click( {
-      flag: flagProduct,
-      select: selectProduct,
-      btnDis: btnTechnology
-    },
-    flagProduct = onClickBtn);
+  $j('#btn-city').click(onClickBtnCity);
+  $j('#btn-product').click(onClickBtnProduct);
+  $j('#btn-technology').click(onClickBtnTechnology);
 
-  $j('#btn-technology').click( {
-      flag: flagTechnology,
-      select: selectTechnology,
-      btnDis: btnProduct
-    },
-    flagTechnology = onClickBtn);
 
   $j('.popup__close').click( function (evt) {
     closePopup();
@@ -97,5 +98,5 @@ var closePopup = function () {
       closePopup();
     }
   });
-
+  
 });
