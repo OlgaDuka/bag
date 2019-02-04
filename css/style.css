@@ -79,7 +79,8 @@
     padding: 8px 10px;
     font-family: "Roboto", sans-serif;
     font-size: 14px;
-    color: #000; }
+    color: #000;
+    border: 1px solid #ddd; }
     .popup--order .popup__input::-webkit-input-placeholder,
     .popup--order .popup__textarea::-webkit-input-placeholder {
       color: #ddd; }
@@ -95,7 +96,7 @@
   .popup--order .popup__textarea {
     margin-top: 0;
     margin-bottom: 18px;
-    height: 120px; }
+    height: 100px; }
 
 .jq-selectbox__select {
   padding: 0;
@@ -145,8 +146,10 @@
   -webkit-box-shadow: none;
           box-shadow: none;
   text-align: left;
-  max-height: 120px;
-  overflow-y: scroll; }
+  max-height: 100px;
+  overflow-y: scroll;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px; }
 
 .jq-selectbox li.selected {
   background-color: #ddd; }
