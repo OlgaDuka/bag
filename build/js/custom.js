@@ -28,6 +28,13 @@ $j(function () {
   var onClickBtnProduct = function () {
     if (!flagProduct) {
       selectProduct.fadeIn();
+      selectProduct.find('.jq-selectbox__dropdown').css({
+        left: '0px',
+        top: '0px',
+        height: 'auto',
+        bottom: 'auto',
+        display: 'block'
+      });
       btnTechnology.prop('disabled', true);
       btnTechnology.addClass('button_regist--disabled');
       flagProduct = true;
@@ -43,6 +50,13 @@ $j(function () {
   var onClickBtnTechnology = function (eventObject) {
     if (!flagTechnology) {
       selectTechnology.fadeIn();
+      selectTechnology.find('.jq-selectbox__dropdown').css({
+        left: '0px',
+        top: '0px',
+        height: 'auto',
+        bottom: 'auto',
+        display: 'block'
+      });
       btnProduct.prop('disabled', true);
       btnProduct.addClass('button_regist--disabled');
       flagTechnology = true;
@@ -58,6 +72,13 @@ $j(function () {
   var onClickBtnCity = function () {
     if (!flagCity) {
       $j('#select-city-styler').fadeIn();
+      $j('#select-city-styler').find('.jq-selectbox__dropdown').css({
+        left: '0px',
+        top: '0px',
+        height: 'auto',
+        bottom: 'auto',
+        display: 'block'
+      });
       flagCity = true;
     } else {
       $j('#select-city-styler').fadeOut();
@@ -98,5 +119,5 @@ $j(function () {
       closePopup();
     }
   });
-  
+
 });
