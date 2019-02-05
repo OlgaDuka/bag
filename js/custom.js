@@ -9,6 +9,7 @@ $j(function () {
   var btnProduct = $j('#btn-product');
   var btnTechnology = $j('#btn-technology');
   var btnSubmit = $j('#sub-order');
+  var selectSity = $j('#select-city-styler');
   var selectProduct = $j('#select-product-styler');
   var selectTechnology = $j('#select-technology-styler');
   var flagCity = false;
@@ -28,6 +29,9 @@ $j(function () {
   var onClickBtnProduct = function () {
     if (!flagProduct) {
       selectProduct.fadeIn();
+      selectProduct.find('.jq-selectbox__select').css({
+        display: 'none'
+      });
       selectProduct.find('.jq-selectbox__dropdown').css({
         left: '0px',
         top: '0px',
@@ -50,6 +54,9 @@ $j(function () {
   var onClickBtnTechnology = function (eventObject) {
     if (!flagTechnology) {
       selectTechnology.fadeIn();
+      selectTechnology.find('.jq-selectbox__select').css({
+        display: 'none'
+      });
       selectTechnology.find('.jq-selectbox__dropdown').css({
         left: '0px',
         top: '0px',
@@ -71,8 +78,11 @@ $j(function () {
 
   var onClickBtnCity = function () {
     if (!flagCity) {
-      $j('#select-city-styler').fadeIn();
-      $j('#select-city-styler').find('.jq-selectbox__dropdown').css({
+      selectSity.fadeIn();
+      selectSity.find('.jq-selectbox__select').css({
+        display: 'none'
+      });
+      selectSity.find('.jq-selectbox__dropdown').css({
         left: '0px',
         top: '0px',
         height: 'auto',
@@ -81,19 +91,23 @@ $j(function () {
       });
       flagCity = true;
     } else {
-      $j('#select-city-styler').fadeOut();
+      selectSity.fadeOut();
       flagCity = false;
     }
     submitCheck();
+  };
+
+  var showSelectText = function (eventObject) {
+    eventObject.data.select.find('.jq-selectbox__select').css({display: 'block'});
   };
 
   var closePopup = function () {
     flagCity = false;
     flagProduct = false;
     flagTechnology = false;
-    $j('#select-city-styler').fadeOut();
-    $j('#select-product-styler').fadeOut();
-    $j('#select-technology-styler').fadeOut();
+    selectSity.fadeOut();
+    selectProduct.fadeOut();
+    selectTechnology.fadeOut();
     $j('#overlay').removeClass('popup-overlay_active');
     $j('#popup-order').removeClass('popup_active');
     $j('#form-order')[0].reset();
@@ -109,6 +123,9 @@ $j(function () {
   $j('#btn-product').click(onClickBtnProduct);
   $j('#btn-technology').click(onClickBtnTechnology);
 
+  selectSity.click({select: selectSity}, showSelectText);
+  selectProduct.click({select: selectProduct}, showSelectText);
+  selectTechnology.click({select: selectTechnology}, showSelectText);
 
   $j('.popup__close').click( function (evt) {
     closePopup();

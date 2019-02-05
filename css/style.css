@@ -133,11 +133,7 @@
   border: none; }
 
 .jq-selectbox__trigger {
-  width: 16px;
-  border-left: none; }
-  .jq-selectbox__trigger-arrow {
-    top: 8px;
-    right: 5px; }
+  display: none; }
 
 .jq-selectbox__dropdown {
   position: relative;

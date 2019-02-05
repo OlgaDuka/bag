@@ -42,13 +42,7 @@
 }
 
 .jq-selectbox__trigger {
-  width: 16px;
-  border-left: none;
-
-  &-arrow {
-    top: 8px;
-    right: 5px;
-  }
+  display: none;
 }
 
 .jq-selectbox__dropdown {
