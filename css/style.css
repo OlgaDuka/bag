@@ -70,7 +70,8 @@
     padding: 3px 0;
     color: #000; }
     .popup--order .button_regist--disabled {
-      color: #ddd; }
+      color: #fff;
+      cursor: not-allowed; }
       .popup--order .button_regist--disabled:hover {
         background-color: #ccc;
         color: #ddd; }
@@ -80,16 +81,16 @@
     font-family: "Roboto", sans-serif;
     font-size: 14px;
     color: #000;
-    border: 1px solid #ddd; }
+    border: 1px solid #c1c1c1; }
     .popup--order .popup__input::-webkit-input-placeholder,
     .popup--order .popup__textarea::-webkit-input-placeholder {
-      color: #ddd; }
+      color: #c1c1c1; }
     .popup--order .popup__input::-ms-input-placeholder,
     .popup--order .popup__textarea::-ms-input-placeholder {
-      color: #ddd; }
+      color: #c1c1c1; }
     .popup--order .popup__input::placeholder,
     .popup--order .popup__textarea::placeholder {
-      color: #ddd; }
+      color: #c1c1c1; }
   .popup--order .popup__input {
     margin-top: 10px;
     margin-bottom: 15px; }

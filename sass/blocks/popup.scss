@@ -26,7 +26,8 @@
     color: #000;
 
     &--disabled {
-      color: #ddd;
+      color: #fff;
+      cursor: not-allowed;
 
       &:hover {
         background-color: #ccc;
@@ -41,10 +42,10 @@
     font-family: "Roboto", sans-serif;
     font-size: 14px;
     color: #000;
-    border: 1px solid #ddd;
+    border: 1px solid #c1c1c1;
 
     &::placeholder {
-      color: #ddd;
+      color: #c1c1c1;
     }
   }
 
