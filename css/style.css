@@ -146,6 +146,8 @@
   overflow-y: auto;
   font-family: "Roboto", sans-serif;
   font-size: 16px; }
+  .jq-selectbox__dropdown ul {
+    overflow: hidden; }
 
 .jq-selectbox li.selected {
   background-color: #ddd; }
