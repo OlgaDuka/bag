@@ -77,23 +77,18 @@ $j(function () {
   };
 
   var onClickBtnCity = function () {
-    if (!flagCity) {
-      selectSity.fadeIn();
-      selectSity.find('.jq-selectbox__select').css({
-        display: 'none'
-      });
-      selectSity.find('.jq-selectbox__dropdown').css({
-        left: '0px',
-        top: '0px',
-        height: 'auto',
-        bottom: 'auto',
-        display: 'block'
-      });
-      flagCity = true;
-    } else {
-      selectSity.fadeOut();
-      flagCity = false;
-    }
+    selectSity.fadeIn();
+    selectSity.find('.jq-selectbox__select').css({
+      display: 'none'
+    });
+    selectSity.find('.jq-selectbox__dropdown').css({
+      left: '0px',
+      top: '0px',
+      height: 'auto',
+      bottom: 'auto',
+      display: 'block'
+    });
+    flagCity = true;
     submitCheck();
   };
 
