@@ -9,15 +9,17 @@ $j(function () {
   var btnProduct = $j('#btn-product');
   var btnTechnology = $j('#btn-technology');
   var btnSubmit = $j('#sub-order');
-  var selectSity = $j('#select-city-styler');
+  var selectCity = $j('#select-city-styler');
   var selectProduct = $j('#select-product-styler');
   var selectTechnology = $j('#select-technology-styler');
-  var flagCity = false;
-  var flagProduct = false;
-  var flagTechnology = false;
+  var flags = {
+    flagCity: false,
+    flagProduct: false,
+    flagTechnology: false
+  };
 
   var submitCheck = function () {
-    if (flagCity && (flagProduct || flagTechnology)) {
+    if (flags.flagCity && (flags.flagProduct || flags.flagTechnology)) {
       btnSubmit.prop('disabled', false);
       btnSubmit.removeClass('button_regist--disabled');
     } else {
@@ -26,69 +28,44 @@ $j(function () {
     }
   };
 
-  var onClickBtnProduct = function () {
-    if (!flagProduct) {
-      selectProduct.fadeIn();
-      selectProduct.find('.jq-selectbox__select').css({
+  var onClickBtn = function (eventObject) {
+    if (!flags[eventObject.data.flag]) {
+      eventObject.data.select.fadeIn();
+      eventObject.data.select.find('.jq-selectbox__select').css({
         display: 'none'
       });
-      selectProduct.find('.jq-selectbox__dropdown').css({
+      eventObject.data.select.find('.jq-selectbox__dropdown').css({
         left: '0px',
         top: '0px',
         height: 'auto',
         bottom: 'auto',
         display: 'block'
       });
-      btnTechnology.prop('disabled', true);
-      btnTechnology.addClass('button_regist--disabled');
-      flagProduct = true;
+      eventObject.data.btnDis.prop('disabled', true);
+      eventObject.data.btnDis.addClass('button_regist--disabled');
+      flags[eventObject.data.flag] = true;
     } else {
-      selectProduct.fadeOut();
-      btnTechnology.prop('disabled', false);
-      btnTechnology.removeClass('button_regist--disabled');
-      flagProduct = false;
-    }
-    submitCheck();
-  };
-
-  var onClickBtnTechnology = function (eventObject) {
-    if (!flagTechnology) {
-      selectTechnology.fadeIn();
-      selectTechnology.find('.jq-selectbox__select').css({
-        display: 'none'
-      });
-      selectTechnology.find('.jq-selectbox__dropdown').css({
-        left: '0px',
-        top: '0px',
-        height: 'auto',
-        bottom: 'auto',
-        display: 'block'
-      });
-      btnProduct.prop('disabled', true);
-      btnProduct.addClass('button_regist--disabled');
-      flagTechnology = true;
-    } else {
-      selectTechnology.fadeOut();
-      btnProduct.prop('disabled', false);
-      btnProduct.removeClass('button_regist--disabled');
-      flagTechnology = false;
+      eventObject.data.select.fadeOut();
+      eventObject.data.btnDis.prop('disabled', false);
+      eventObject.data.btnDis.removeClass('button_regist--disabled');
+      flags[eventObject.data.flag] = false;
     }
     submitCheck();
   };
 
   var onClickBtnCity = function () {
-    selectSity.fadeIn();
-    selectSity.find('.jq-selectbox__select').css({
+    selectCity.fadeIn();
+    selectCity.find('.jq-selectbox__select').css({
       display: 'none'
     });
-    selectSity.find('.jq-selectbox__dropdown').css({
+    selectCity.find('.jq-selectbox__dropdown').css({
       left: '0px',
       top: '0px',
       height: 'auto',
       bottom: 'auto',
       display: 'block'
     });
-    flagCity = true;
+    flags.flagCity = true;
     submitCheck();
   };
 
@@ -97,10 +74,10 @@ $j(function () {
   };
 
   var closePopup = function () {
-    flagCity = false;
-    flagProduct = false;
-    flagTechnology = false;
-    selectSity.fadeOut();
+    flags.flagCity = false;
+    flags.flagProduct = false;
+    flags.flagTechnology = false;
+    selectCity.fadeOut();
     selectProduct.fadeOut();
     selectTechnology.fadeOut();
     $j('#overlay').removeClass('popup-overlay_active');
@@ -115,10 +92,18 @@ $j(function () {
   });
 
   $j('#btn-city').click(onClickBtnCity);
-  $j('#btn-product').click(onClickBtnProduct);
-  $j('#btn-technology').click(onClickBtnTechnology);
+  btnProduct.click( {
+    flag: flags.flagProduct,
+    select: selectProduct,
+    btnDis: btnTechnology
+  }, onClickBtn);
+  btnTechnology.click( {
+    flag: flags.flagTechnology,
+    select: selectTechnology,
+    btnDis: btnProduct
+  }, onClickBtn);
 
-  selectSity.click({select: selectSity}, showSelectText);
+  selectCity.click({select: selectCity}, showSelectText);
   selectProduct.click({select: selectProduct}, showSelectText);
   selectTechnology.click({select: selectTechnology}, showSelectText);
 
