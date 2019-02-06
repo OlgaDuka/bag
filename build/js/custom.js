@@ -93,12 +93,12 @@ $j(function () {
 
   $j('#btn-city').click(onClickBtnCity);
   btnProduct.click( {
-    flag: flags.flagProduct,
+    flag: 'flagProduct',
     select: selectProduct,
     btnDis: btnTechnology
   }, onClickBtn);
   btnTechnology.click( {
-    flag: flags.flagTechnology,
+    flag: 'flagTechnology',
     select: selectTechnology,
     btnDis: btnProduct
   }, onClickBtn);
@@ -116,5 +116,4 @@ $j(function () {
       closePopup();
     }
   });
-
 });
