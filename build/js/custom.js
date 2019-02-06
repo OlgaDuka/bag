@@ -107,7 +107,7 @@ $j(function () {
   selectProduct.click({select: selectProduct}, showSelectText);
   selectTechnology.click({select: selectTechnology}, showSelectText);
 
-  $j('.popup__close').click( function (evt) {
+  $j('.popup__close').click( function () {
     closePopup();
   });
 

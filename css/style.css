@@ -81,23 +81,24 @@
     font-family: "Roboto", sans-serif;
     font-size: 14px;
     color: #000;
-    border: 1px solid #c1c1c1; }
+    border: 1px solid #636363; }
     .popup--order .popup__input::-webkit-input-placeholder,
     .popup--order .popup__textarea::-webkit-input-placeholder {
-      color: #c1c1c1; }
+      color: #636363; }
     .popup--order .popup__input::-ms-input-placeholder,
     .popup--order .popup__textarea::-ms-input-placeholder {
-      color: #c1c1c1; }
+      color: #636363; }
     .popup--order .popup__input::placeholder,
     .popup--order .popup__textarea::placeholder {
-      color: #c1c1c1; }
+      color: #636363; }
   .popup--order .popup__input {
     margin-top: 10px;
     margin-bottom: 15px; }
   .popup--order .popup__textarea {
     margin-top: 0;
     margin-bottom: 18px;
-    height: 100px; }
+    height: 100px;
+    resize: none; }
 
 .jq-selectbox__select {
   padding: 0;
