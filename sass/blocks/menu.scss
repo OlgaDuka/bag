@@ -1,9 +1,20 @@
 .menu__item {
   position: relative;
 
-  &--inner:hover .menu__inner {
-    opacity: 1;
-    height: 107px;
+  &--inner {
+    box-sizing: border-box;
+
+    &:hover {
+      .menu__inner {
+        opacity: 1;
+        height: 107px;
+      }
+
+      .menu__item {
+        height: 35px;
+      }
+
+    }
   }
 }
 
@@ -26,8 +37,10 @@
     width: 100%;
     margin: 0;
     display: flex;
+    height: 0;
     justify-content: center;
     border-bottom: 1px solid #000;
+    transition: all 0.4s;
 
     &:last-child {
       border-bottom: none;
